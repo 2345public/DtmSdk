@@ -1,0 +1,35 @@
+{
+    "name": "2345public/dtmsdk",
+    "description": "DTM分布式事务客户端SDK",
+    "type": "library",
+    "keywords": [
+        "dtm",
+        "sdk",
+        "dtmsdk"
+    ],
+    "authors": [
+        {
+            "name": "linyj",
+            "email": "linyj@2345.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.3|^8.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OA\\DtmSdk\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OA\\DtmSdk\\Laravel\\ServiceProvider"
+            ],
+            "aliases": {
+                "Excel": "OA\\DtmSdk\\Laravel\\DtmClient"
+            }
+        }
+    }
+}
