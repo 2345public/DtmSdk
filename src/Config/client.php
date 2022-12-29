@@ -111,7 +111,7 @@ return [
      | 子事务屏障
      */
     'barrier' => [
-        'switch' => ToolsUtil::env('DTM_BARRIER_SWITCH', true),
+        'switch' => ToolsUtil::env('DTM_BARRIER_SWITCH', false),
         'dbname' => ToolsUtil::env('DTM_BARRIER_DB_NAME', 'ae'),
         'host' => ToolsUtil::env('DTM_BARRIER_DB_HOST', 'mysql'),
         'port' => ToolsUtil::env('DTM_BARRIER_DB_PORT', '3306'),

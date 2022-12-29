@@ -38,6 +38,6 @@ class SignCheck
         if ($this->debug) {
             return ;
         }
-        $this->checkSign($queryList, $queryList['sign']);
+        $this->checkSign($queryList, $queryList['sign'] ?: '');
     }
 }
