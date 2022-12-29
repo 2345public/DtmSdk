@@ -30,7 +30,7 @@ return [
      |
      | 是否等待事务结果
      */
-    'wait_result' => ToolsUtil::env('DTM_CLIENT_WAIT_RESULT', true),
+    'wait_result' => ToolsUtil::env('DTM_CLIENT_WAIT_RESULT', false),
 
     /*
      |--------------------------------------------------------------------------

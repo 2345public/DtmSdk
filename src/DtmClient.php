@@ -44,4 +44,28 @@ class DtmClient
     {
         return call_user_func_array(array(&$this->handler, $name), $arguments);
     }
+
+    /**
+     * 响应成功
+     *
+     * @param array $data
+     * @return void
+     */
+    public function responseSuccess(array $data)
+    {
+        http_response_code(200);
+        echo json_encode($data);
+    }
+
+    /**
+     * 响应失败
+     *
+     * @param array $data
+     * @return void
+     */
+    public function responseFailed(array $data)
+    {
+        http_response_code(409);
+        echo json_encode($data);
+    }
 }

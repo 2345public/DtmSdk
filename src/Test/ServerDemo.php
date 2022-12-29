@@ -16,14 +16,22 @@ $queryList = $_GET;
 $postData = $_POST;
 try {
     $dtmServer = new OA\DtmSdk\DtmServer($queryList);
-    $res   = $dtmServer->call(function() use ($postData){
+    $rs   = $dtmServer->call(function() use ($postData){
         var_dump($postData);
-        throw new \Exception('失败抛错', -1);
+        throw new \Exception('失败抛错', -2);
         return true;
     });
-    $success = var_export($res, true);
-    echo "server result: {$success}";
+    $res = [
+        'code' => 0,
+        'msg' => 'success',
+        'data' => [$rs],
+    ];
+    $dtmServer->responseSuccess($res);
 } catch (\Throwable $e) {
-    // var_dump($e->getTraceAsString());
-    echo "server with error: [" . $e->getCode() . "]" . $e->getMessage();
+    $res = [
+        'code' => $e->getCode() ?: -1,
+        'msg' => $e->getMessage(),
+        'data' => [],
+    ];
+    $dtmServer->responseFailed($res);
 }
