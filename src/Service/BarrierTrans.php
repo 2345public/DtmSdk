@@ -94,7 +94,7 @@ class BarrierTrans
     public function call(callable $callback): bool {
         if (!$this->switch) {
             try {
-                $success = $callback();
+                $success = $callback($this->database);
                 if ($success) {
                     return true;
                 }
